@@ -49,4 +49,9 @@ class IntegrationTest extends CommonMarkTest
     {
         $this->assertMarkdownFile('Vektor');
     }
+
+    public function testAvl(): void
+    {
+        $this->assertMarkdownFile('AVL-Bäume');
+    }
 }
