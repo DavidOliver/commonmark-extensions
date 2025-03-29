@@ -16,14 +16,21 @@ class IntegrationTest extends CommonMarkTest
 {
     protected function setUp(): void
     {
-        parent::configureEnvironment(extensions: [
-            new CalloutExtension(),
-            new CodeHighlightingExtension(),
-            new LaTexExtension(),
-            new WikilinkExtension(),
-            new WikilinkEmbedExtension(),
-            new TableExtension(),
-        ]);
+        parent::configureEnvironment(
+            extensions: [
+                new CalloutExtension(),
+                new CodeHighlightingExtension(),
+                new LaTexExtension(),
+                new WikilinkExtension(),
+                new WikilinkEmbedExtension(),
+                new TableExtension(),
+            ],
+            config: [
+                'slug_normalizer' => [
+                    'unique' => false,
+                ],
+            ]
+        );
     }
 
     protected function assertMarkdownFile(string $filePath): void

@@ -42,14 +42,14 @@ class WikilinkParser implements InlineParserInterface, EnvironmentAwareInterface
         $anchor = $parts[1] ?? null;
 
         if ($anchor) {
-            $anchor = $this->slugNormalizer->normalize($anchor);
+            $normalizedAnchor = $this->slugNormalizer->normalize($anchor);
         }
 
         if ($filename) {
             $resolvedWikilink = ($this->resolveWikilink)($filename);
 
             if ($anchor) {
-                $resolvedWikilink .= '#' . $anchor;
+                $resolvedWikilink .= '#' . $normalizedAnchor;
             }
 
             if (!$caption) {
@@ -60,7 +60,7 @@ class WikilinkParser implements InlineParserInterface, EnvironmentAwareInterface
                 }
             }
         } else if ($anchor) {
-            $resolvedWikilink = "#" . $anchor;
+            $resolvedWikilink = "#" . $normalizedAnchor;
             $caption = $anchor;
         } else {
             $resolvedWikilink = '';
