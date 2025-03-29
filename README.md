@@ -104,11 +104,16 @@ You may want to configure the extension:
 $config = [
     'wikilink' => [
         'resolve' => fn (string) => string
+    ],
+    [
+    'slug_normalizer' => [
+        'unique' => false,
     ]
 ]
 ```
 
 -   `resolve` - A closure expecting the wikilink text and returning the resolved href value which will be used in the `<a>` tag.
+-   If using the [Heading Permalink Extension](https://commonmark.thephpleague.com/2.6/extensions/heading-permalinks/), you want to set the `slug_normalizer` option `unique` to `false`, as else the Wikilink anchors will not link correctly to their respective headings.
 
 ### WikilinkEmbed
 
