@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Semmelsamu\CommonmarkExtensions\Tests\Callout;
 
+use League\CommonMark\Extension\Table\TableExtension;
 use Semmelsamu\CommonmarkExtensions\Tests\CommonMarkTest;
 use Semmelsamu\CommonmarkExtensions\Callout\CalloutExtension;
 use Semmelsamu\CommonmarkExtensions\CodeHighlighting\CodeHighlightingExtension;
@@ -20,7 +21,8 @@ class IntegrationTest extends CommonMarkTest
             new CodeHighlightingExtension(),
             new LaTexExtension(),
             new WikilinkExtension(),
-            new WikilinkEmbedExtension()
+            new WikilinkEmbedExtension(),
+            new TableExtension(),
         ]);
     }
 

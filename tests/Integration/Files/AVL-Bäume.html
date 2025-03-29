@@ -44,3 +44,113 @@
     <span class="latex-inline">$-1$</span>
     verwendet.
 </p>
+
+<h2>Rotationen</h2>
+
+<p>
+    Rotationen werden an einem Knoten durchgeführt, wenn bei ihm die AVL-Eigenschaft verletzt ist.
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th><strong>Ist der...</strong></th>
+            <th><strong>...linkte Teilbaum zu hoch und...</strong></th>
+            <th><strong>...rechte Teilbaum zu hoch und...</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>...davon der rechte Teilbaum höher:</strong></td>
+            <td>
+                <a href="AVL-Bäume#links-rechts-rotation">
+                    Links-Rechts-Rotation
+                </a>
+            </td>
+            <td>
+                <a href="AVL-Bäume#links-rotation">
+                    Links-Rotation
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>...davon der linke Teilbaum höher:</strong></td>
+            <td>
+                <a href="AVL-Bäume#rechts-rotation">
+                    Rechts-Rotation
+                </a>
+            </td>
+            <td>
+                <a href="AVL-Bäume#rechts-links-rotation">
+                    Rechts-Links-Rotation
+                </a>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Einfachrotationen</h3>
+
+<p>
+    Einfachrotationen werden durchgeführt, wenn der <strong>äußere Teilbaum</strong> zu hoch ist.
+</p>
+
+<h4>Links-Rotation</h4>
+
+<p>
+    Das innere Kindelement wird umgehängt.
+</p>
+
+<h4>Rechts-Rotation</h4>
+
+<p>
+    Das innere Kindelement wird umgehängt.
+</p>
+
+<h3>Doppelrotationen</h3>
+
+<p>
+    Doppelrotationen werden durchgeführt, wenn der 
+    <strong>innere Teilbaum</strong>
+    zu hoch ist. Sie bestehen aus
+    <strong>
+        zwei 
+        <a href="AVL-Bäume#einfachrotationen">
+            Einfachrotationen
+        </a>
+    </strong>
+    , was auch algorithmisch so umsetzbar ist.
+</p>
+
+<p>
+    Doppelrotationen rotieren 
+    <strong>zuerst einen Teilbaum</strong>,
+    dann sich selbst.
+</p>
+
+<h4>Rechts-Links-Rotation</h4>
+
+<p>
+    Es erfolgt eine 
+    <a href="AVL-Bäume#rechts-rotation">
+        Rechts-Rotation
+    </a>
+    am rechten Teilbaum mit anschließender 
+    <a href="AVL-Bäume#links-rotation">
+        Links-Rotation
+    </a>
+    am Element.
+</p>
+
+<h4>Links-Rechts-Rotation</h4>
+
+<p>
+    Es erfolgt eine 
+    <a href="AVL-Bäume#links-rotation">
+        Links-Rotation
+    </a>
+    am rechten Teilbaum mit anschließender 
+    <a href="AVL-Bäume#rechts-rotation">
+        Rechts-Rotation
+    </a>
+    am Element.
+</p>
