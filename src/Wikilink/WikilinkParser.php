@@ -4,18 +4,27 @@ declare(strict_types=1);
 
 namespace Semmelsamu\CommonmarkExtensions\Wikilink;
 
+use League\CommonMark\Environment\EnvironmentAwareInterface;
+use League\CommonMark\Environment\EnvironmentInterface;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
 use League\CommonMark\Parser\Inline\InlineParserInterface;
 use League\CommonMark\Parser\Inline\InlineParserMatch;
 use League\CommonMark\Parser\InlineParserContext;
 
-class WikilinkParser implements InlineParserInterface
+class WikilinkParser implements InlineParserInterface, EnvironmentAwareInterface
 {
     private $resolveWikilink;
+
+    private $slugNormalizer;
 
     public function __construct(callable $resolveWikilink)
     {
         $this->resolveWikilink = $resolveWikilink;
+    }
+
+    public function setEnvironment(EnvironmentInterface $environment): void
+    {
+        $this->slugNormalizer = $environment->getSlugNormalizer();
     }
 
     public function getMatchDefinition(): InlineParserMatch
@@ -25,12 +34,28 @@ class WikilinkParser implements InlineParserInterface
 
     public function parse(InlineParserContext $inlineContext): bool
     {
-        $filename = $inlineContext->getSubMatches()[0];
+        $wikilink = $inlineContext->getSubMatches()[0];
         $caption = $inlineContext->getSubMatches()[1] ?? null;
 
-        $source = ($this->resolveWikilink)($filename);
+        $parts = explode('#', $wikilink, 2);
+        $filename = $parts[0];
+        $anchor = $parts[1] ?? null;
 
-        $inlineContext->getContainer()->appendChild(new Link($source, $caption ?? $filename));
+        $resolvedWikilink = ($this->resolveWikilink)($filename);
+
+        if ($anchor) {
+            $resolvedWikilink .= '#' . $this->slugNormalizer->normalize($anchor);
+        }
+
+        if (!$caption) {
+            $caption = $filename;
+
+            if ($anchor) {
+                $caption .= ' > ' . $anchor;
+            }
+        }
+
+        $inlineContext->getContainer()->appendChild(new Link($resolvedWikilink, $caption));
 
         $inlineContext->getCursor()->advanceBy($inlineContext->getFullMatchLength());
 
