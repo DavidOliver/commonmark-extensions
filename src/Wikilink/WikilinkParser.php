@@ -32,7 +32,7 @@ class WikilinkParser implements InlineParserInterface
 
         $inlineContext->getContainer()->appendChild(new Link($source, $caption ?? $filename));
 
-        $inlineContext->getCursor()->advanceBy(strlen($inlineContext->getMatches()[0]));
+        $inlineContext->getCursor()->advanceBy($inlineContext->getFullMatchLength());
 
         return true;
     }
