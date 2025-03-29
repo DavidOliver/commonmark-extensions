@@ -41,18 +41,29 @@ class WikilinkParser implements InlineParserInterface, EnvironmentAwareInterface
         $filename = $parts[0];
         $anchor = $parts[1] ?? null;
 
-        $resolvedWikilink = ($this->resolveWikilink)($filename);
-
         if ($anchor) {
-            $resolvedWikilink .= '#' . $this->slugNormalizer->normalize($anchor);
+            $anchor = $this->slugNormalizer->normalize($anchor);
         }
 
-        if (!$caption) {
-            $caption = $filename;
+        if ($filename) {
+            $resolvedWikilink = ($this->resolveWikilink)($filename);
 
             if ($anchor) {
-                $caption .= ' > ' . $anchor;
+                $resolvedWikilink .= '#' . $anchor;
             }
+
+            if (!$caption) {
+                $caption = $filename;
+
+                if ($anchor) {
+                    $caption .= ' > ' . $anchor;
+                }
+            }
+        } else if ($anchor) {
+            $resolvedWikilink = "#" . $anchor;
+            $caption = $anchor;
+        } else {
+            $resolvedWikilink = '';
         }
 
         $inlineContext->getContainer()->appendChild(new Link($resolvedWikilink, $caption));

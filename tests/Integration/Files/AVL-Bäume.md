@@ -11,10 +11,10 @@ Die **Balance** ist der [[Betrag]] der [[Höhe eines Baumes|Höhendifferenz]] zw
 
 Rotationen werden an einem Knoten durchgeführt, wenn bei ihm die AVL-Eigenschaft verletzt ist.
 
-| **Ist der...**                          | **...linkte Teilbaum zu hoch und...**                      | **...rechte Teilbaum zu hoch und...**                      |
-| --------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| **...davon der rechte Teilbaum höher:** | [[AVL-Bäume#Links-Rechts-Rotation\|Links-Rechts-Rotation]] | [[AVL-Bäume#Links-Rotation\|Links-Rotation]]               |
-| **...davon der linke Teilbaum höher:**  | [[AVL-Bäume#Rechts-Rotation\|Rechts-Rotation]]             | [[AVL-Bäume#Rechts-Links-Rotation\|Rechts-Links-Rotation]] |
+| **Ist der...**                          | **...linkte Teilbaum zu hoch und...**             | **...rechte Teilbaum zu hoch und...**             |
+| --------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| **...davon der rechte Teilbaum höher:** | [[#Links-Rechts-Rotation\|Links-Rechts-Rotation]] | [[#Links-Rotation\|Links-Rotation]]               |
+| **...davon der linke Teilbaum höher:**  | [[#Rechts-Rotation\|Rechts-Rotation]]             | [[#Rechts-Links-Rotation\|Rechts-Links-Rotation]] |
 
 ### Einfachrotationen
 
@@ -30,14 +30,14 @@ Das innere Kindelement wird umgehängt.
 
 ### Doppelrotationen
 
-Doppelrotationen werden durchgeführt, wenn der **innere Teilbaum** zu hoch ist. Sie bestehen aus **zwei [[AVL-Bäume#Einfachrotationen|Einfachrotationen]]**, was auch algorithmisch so umsetzbar ist.
+Doppelrotationen werden durchgeführt, wenn der **innere Teilbaum** zu hoch ist. Sie bestehen aus **zwei [[#Einfachrotationen|Einfachrotationen]]**, was auch algorithmisch so umsetzbar ist.
 
 Doppelrotationen rotieren **zuerst einen Teilbaum**, dann sich selbst.
 
 #### Rechts-Links-Rotation
 
-Es erfolgt eine [[AVL-Bäume#Rechts-Rotation|Rechts-Rotation]] am rechten Teilbaum mit anschließender [[AVL-Bäume#Links-Rotation|Links-Rotation]] am Element.
+Es erfolgt eine [[#Rechts-Rotation|Rechts-Rotation]] am rechten Teilbaum mit anschließender [[#Links-Rotation|Links-Rotation]] am Element.
 
 #### Links-Rechts-Rotation
 
-Es erfolgt eine [[AVL-Bäume#Links-Rotation|Links-Rotation]] am rechten Teilbaum mit anschließender [[AVL-Bäume#Rechts-Rotation|Rechts-Rotation]] am Element.
+Es erfolgt eine [[#Links-Rotation|Links-Rotation]] am rechten Teilbaum mit anschließender [[#Rechts-Rotation|Rechts-Rotation]] am Element.
