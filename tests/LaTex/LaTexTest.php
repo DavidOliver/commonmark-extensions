@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Semmelsamu\CommonmarkExtensions\Tests\LaTex;
 
-use Semmelsamu\CommonmarkExtensions\Tests\CommonMarkTest;
 use Semmelsamu\CommonmarkExtensions\LaTex\LaTexExtension;
+use Semmelsamu\CommonmarkExtensions\Tests\CommonMarkTest;
 
 class LaTexTest extends CommonMarkTest
 {
     protected function setUp(): void
     {
-        parent::configureEnvironment(extensions: [new LaTexExtension()]);
+        parent::configureEnvironment(extensions: [new LaTexExtension]);
     }
 
-    public function testInlineLatex(): void
+    public function test_inline_latex(): void
     {
         $markdown = <<<'MARKDOWN'
         $E = mc^2$
@@ -29,7 +29,7 @@ class LaTexTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testInlineLatexWithContext(): void
+    public function test_inline_latex_with_context(): void
     {
         $markdown = <<<'MARKDOWN'
         The famous equation $E = mc^2$ was proposed by Einstein.
@@ -44,7 +44,7 @@ class LaTexTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testBlockLatex(): void
+    public function test_block_latex(): void
     {
         $markdown = <<<'MARKDOWN'
         $$
@@ -69,7 +69,7 @@ class LaTexTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testBlockLatexWithContext(): void
+    public function test_block_latex_with_context(): void
     {
         $markdown = <<<'MARKDOWN'
         Here are some equations:
@@ -100,7 +100,7 @@ class LaTexTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testMixedLatex(): void
+    public function test_mixed_latex(): void
     {
         $markdown = <<<'MARKDOWN'
         The equation $E = mc^2$ is part of a larger set of equations:
@@ -128,7 +128,7 @@ class LaTexTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testLatexWithMarkdownSymbols(): void
+    public function test_latex_with_markdown_symbols(): void
     {
         $markdown = <<<'MARKDOWN'
         We subscript the base as follows: $361_{10}$, $\mathrm{C2FA}_{16}$, $01001011_{2}$

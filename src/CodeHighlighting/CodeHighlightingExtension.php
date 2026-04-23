@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace Semmelsamu\CommonmarkExtensions\CodeHighlighting;
 
+use Highlight\Highlighter;
 use League\CommonMark\Environment\EnvironmentBuilderInterface;
 use League\CommonMark\Extension\CommonMark\Node\Block\FencedCode;
 use League\CommonMark\Extension\ExtensionInterface;
 use League\CommonMark\Node\Node;
 use League\CommonMark\Renderer\ChildNodeRendererInterface;
 use League\CommonMark\Renderer\NodeRendererInterface;
-use Illuminate\Support\Facades\Blade;
 
 class CodeHighlightingExtension implements ExtensionInterface, NodeRendererInterface
 {
-    private readonly \Highlight\Highlighter $highlighter;
+    private readonly Highlighter $highlighter;
 
     public function __construct()
     {
-        $this->highlighter = new \Highlight\Highlighter();
+        $this->highlighter = new Highlighter;
     }
 
     public function register(EnvironmentBuilderInterface $environment): void
@@ -29,14 +29,13 @@ class CodeHighlightingExtension implements ExtensionInterface, NodeRendererInter
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): string
     {
         /** @var FencedCode $node */
-
         try {
             $language = $node->getInfo();
             $highlighted = $this->highlighter->highlight($language, $node->getLiteral());
 
             $result = "<pre><code class=\"hljs {$highlighted->language}\">";
             $result .= $highlighted->value;
-            $result .= "</code></pre>";
+            $result .= '</code></pre>';
 
             return $result;
         } catch (\Exception $e) {

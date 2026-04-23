@@ -11,16 +11,16 @@ class WikilinkResolveTest extends CommonMarkTest
 {
     protected function setUp(): void
     {
-        parent::configureEnvironment(extensions: [new WikilinkExtension()], config: [
+        parent::configureEnvironment(extensions: [new WikilinkExtension], config: [
             'wikilink' => [
                 'resolve' => function (string $wikilink) {
-                    return 'resolved:' . $wikilink;
-                }
-            ]
+                    return 'resolved:'.$wikilink;
+                },
+            ],
         ]);
     }
 
-    public function testResolvedWikilink(): void
+    public function test_resolved_wikilink(): void
     {
         $markdown = <<<'MARKDOWN'
         [[Test]]

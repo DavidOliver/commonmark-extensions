@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Semmelsamu\CommonmarkExtensions\Tests\CodeHighlighting;
 
-use Semmelsamu\CommonmarkExtensions\Tests\CommonMarkTest;
 use Semmelsamu\CommonmarkExtensions\CodeHighlighting\CodeHighlightingExtension;
+use Semmelsamu\CommonmarkExtensions\Tests\CommonMarkTest;
 
 class CodeHighlightingTest extends CommonMarkTest
 {
     protected function setUp(): void
     {
-        parent::configureEnvironment(extensions: [new CodeHighlightingExtension()]);
+        parent::configureEnvironment(extensions: [new CodeHighlightingExtension]);
     }
 
-    public function testCodeHighlighting(): void
+    public function test_code_highlighting(): void
     {
         $markdown = <<<'MARKDOWN'
         ```php
@@ -33,7 +33,7 @@ class CodeHighlightingTest extends CommonMarkTest
         );
     }
 
-    public function testCodeHighlightingWithoutLanguage(): void
+    public function test_code_highlighting_without_language(): void
     {
         $markdown = <<<'MARKDOWN'
         ```

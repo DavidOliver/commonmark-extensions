@@ -20,7 +20,7 @@ class LaTexBlockRenderer implements NodeRendererInterface
         return new HtmlElement(
             'div',
             ['class' => 'latex-block'],
-            "$$" . $node->getLiteral() . "$$"
+            '$$'.$node->getLiteral().'$$'
         );
     }
 }

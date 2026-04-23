@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace Semmelsamu\CommonmarkExtensions\Tests\Callout;
 
-use Semmelsamu\CommonmarkExtensions\Tests\CommonMarkTest;
 use Semmelsamu\CommonmarkExtensions\Callout\CalloutExtension;
+use Semmelsamu\CommonmarkExtensions\Tests\CommonMarkTest;
 
 class CalloutIconResolverTest extends CommonMarkTest
 {
     protected function setUp(): void
     {
-        parent::configureEnvironment(extensions: [new CalloutExtension()], config: [
-            "callout" => [
-                "render_icon" => function (string $callout_type) {
-                    return '<i>' . strtoupper($callout_type) . ' ICON</i>';
-                }
-            ]
+        parent::configureEnvironment(extensions: [new CalloutExtension], config: [
+            'callout' => [
+                'render_icon' => function (string $callout_type) {
+                    return '<i>'.strtoupper($callout_type).' ICON</i>';
+                },
+            ],
         ]);
     }
 
-    public function testCalloutWithCustomIcon(): void
+    public function test_callout_with_custom_icon(): void
     {
         $markdown = <<<'MARKDOWN'
         > [!NOTE]

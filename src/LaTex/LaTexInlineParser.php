@@ -31,6 +31,7 @@ class LaTexInlineParser implements InlineParserInterface
         $match = $context->getSubMatches();
         $context->getContainer()->appendChild(new LaTexInline($match[0]));
         $context->getCursor()->advanceBy(strlen($context->getFullMatch()));
+
         return true;
     }
 }

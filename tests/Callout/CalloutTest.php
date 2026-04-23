@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Semmelsamu\CommonmarkExtensions\Tests\Callout;
 
-use Semmelsamu\CommonmarkExtensions\Tests\CommonMarkTest;
 use Semmelsamu\CommonmarkExtensions\Callout\CalloutExtension;
+use Semmelsamu\CommonmarkExtensions\Tests\CommonMarkTest;
 
 class CalloutTest extends CommonMarkTest
 {
     protected function setUp(): void
     {
-        parent::configureEnvironment(extensions: [new CalloutExtension()]);
+        parent::configureEnvironment(extensions: [new CalloutExtension]);
     }
 
-    public function testBasicCallout(): void
+    public function test_basic_callout(): void
     {
         $markdown = <<<'MARKDOWN'
         > [!NOTE]
@@ -36,7 +36,7 @@ class CalloutTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testCalloutWithMultipleLines(): void
+    public function test_callout_with_multiple_lines(): void
     {
         $markdown = <<<'MARKDOWN'
         > [!WARNING]
@@ -64,7 +64,7 @@ class CalloutTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testCalloutWithNestedContent(): void
+    public function test_callout_with_nested_content(): void
     {
         $markdown = <<<'MARKDOWN'
         > [!TIP]
@@ -92,7 +92,7 @@ class CalloutTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testInvalidCallout(): void
+    public function test_invalid_callout(): void
     {
         $markdown = <<<'MARKDOWN'
         > This is not a callout

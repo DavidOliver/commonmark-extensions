@@ -11,10 +11,10 @@ class WikilinkTest extends CommonMarkTest
 {
     protected function setUp(): void
     {
-        parent::configureEnvironment(extensions: [new WikilinkExtension()]);
+        parent::configureEnvironment(extensions: [new WikilinkExtension]);
     }
 
-    public function testBasicWikilink(): void
+    public function test_basic_wikilink(): void
     {
         $markdown = <<<'MARKDOWN'
         [[Test]]
@@ -27,7 +27,7 @@ class WikilinkTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testBasicWikilinkWithContext(): void
+    public function test_basic_wikilink_with_context(): void
     {
         $markdown = <<<'MARKDOWN'
         This is a [[Wikilink]]!
@@ -40,7 +40,7 @@ class WikilinkTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testWikilinkWithText(): void
+    public function test_wikilink_with_text(): void
     {
         $markdown = <<<'MARKDOWN'
         [[Test|Link Text]]
@@ -53,7 +53,7 @@ class WikilinkTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testWikilinkWithTextAndContext(): void
+    public function test_wikilink_with_text_and_context(): void
     {
         $markdown = <<<'MARKDOWN'
         This is a [[Test|Link Text]]!

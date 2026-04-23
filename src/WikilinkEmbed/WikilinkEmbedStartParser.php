@@ -20,13 +20,15 @@ class WikilinkEmbedStartParser implements BlockStartParserInterface
 
     public function tryStart(Cursor $cursor, MarkdownParserStateInterface $parserState): ?BlockStart
     {
-        if ($cursor->isIndented() || $cursor->getNextNonSpaceCharacter() != '!')
+        if ($cursor->isIndented() || $cursor->getNextNonSpaceCharacter() != '!') {
             return null;
+        }
 
         $regex = '/!\[\[([^\]\|]+)(?:\|([^\]]+))?\]\]/';
 
-        if (!preg_match($regex, $cursor->getLine(), $matches))
+        if (! preg_match($regex, $cursor->getLine(), $matches)) {
             return null;
+        }
 
         $filename = ($this->resolveWikilink)($matches[1]);
         $caption = $matches[2] ?? null;

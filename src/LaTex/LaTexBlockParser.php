@@ -19,11 +19,11 @@ final class LaTexBlockParser extends AbstractBlockContinueParser
 
     public function __construct(private bool $isOneLine)
     {
-        $this->block = new LaTexBlock();
+        $this->block = new LaTexBlock;
     }
 
     /**
-     * Each instance of a BlockContinueParserInterface is associated with a new 
+     * Each instance of a BlockContinueParserInterface is associated with a new
      * block that is being parsed. This method here returns that block.
      */
     public function getBlock(): AbstractBlock
@@ -32,7 +32,7 @@ final class LaTexBlockParser extends AbstractBlockContinueParser
     }
 
     /**
-     * This method returns whether or not the block is a "container" capable of 
+     * This method returns whether or not the block is a "container" capable of
      * containing other blocks as children.
      */
     public function isContainer(): bool
@@ -41,7 +41,7 @@ final class LaTexBlockParser extends AbstractBlockContinueParser
     }
 
     /**
-     * This method returns whether the current block being parsed can contain 
+     * This method returns whether the current block being parsed can contain
      * the given child block.
      */
     public function canContain(AbstractBlock $childBlock): bool
@@ -50,12 +50,12 @@ final class LaTexBlockParser extends AbstractBlockContinueParser
     }
 
     /**
-     * If canHaveLazyContinuationLines() returned true, this method will be 
+     * If canHaveLazyContinuationLines() returned true, this method will be
      * called with the additional lines of content.
      */
     public function addLine(string $line): void
     {
-        $this->content .= trim($line, "$");
+        $this->content .= trim($line, '$');
     }
 
     /**
@@ -75,7 +75,7 @@ final class LaTexBlockParser extends AbstractBlockContinueParser
     }
 
     /**
-     * This method is called when the block is done being parsed. Any final 
+     * This method is called when the block is done being parsed. Any final
      * adjustments to the block should be made at this time.
      */
     public function closeBlock(): void

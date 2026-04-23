@@ -19,7 +19,7 @@ final class CalloutRenderer implements NodeRendererInterface
     }
 
     /**
-     * @param Callout $node
+     * @param  Callout  $node
      */
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable
     {
@@ -34,7 +34,7 @@ final class CalloutRenderer implements NodeRendererInterface
             ['class' => 'callout-title'],
             [
                 ($this->renderIcon)($type),
-                new HtmlElement('strong', ['class' => 'callout-title-inner'], $title, false)
+                new HtmlElement('strong', ['class' => 'callout-title-inner'], $title, false),
             ],
             false
         );

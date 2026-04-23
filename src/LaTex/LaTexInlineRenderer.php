@@ -13,10 +13,10 @@ class LaTexInlineRenderer implements NodeRendererInterface
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): string
     {
 
-        if (!($node instanceof LaTexInline)) {
+        if (! ($node instanceof LaTexInline)) {
             throw new \InvalidArgumentException('Wrong node type');
         }
 
-        return '<span class="latex-inline">$' . $node->getExpression() . '$</span>';
+        return '<span class="latex-inline">$'.$node->getExpression().'$</span>';
     }
 }

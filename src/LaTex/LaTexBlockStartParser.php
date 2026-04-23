@@ -13,11 +13,6 @@ class LaTexBlockStartParser implements BlockStartParserInterface
 {
     /**
      * Check whether we should handle the block at the current position
-     *
-     * @param Cursor                       $cursor
-     * @param MarkdownParserStateInterface $parserState
-     *
-     * @return BlockStart|null
      */
     public function tryStart(Cursor $cursor, MarkdownParserStateInterface $parserState): ?BlockStart
     {

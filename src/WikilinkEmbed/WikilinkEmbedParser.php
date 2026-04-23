@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Semmelsamu\CommonmarkExtensions\WikilinkEmbed;
 
+use League\CommonMark\Node\Block\AbstractBlock;
 use League\CommonMark\Parser\Block\AbstractBlockContinueParser;
 use League\CommonMark\Parser\Block\BlockContinue;
 use League\CommonMark\Parser\Block\BlockContinueParserInterface;
 use League\CommonMark\Parser\Cursor;
-use League\CommonMark\Node\Block\AbstractBlock;
-use Semmelsamu\CommonmarkExtensions\WikilinkEmbed\Embed;
 
 class WikilinkEmbedParser extends AbstractBlockContinueParser
 {

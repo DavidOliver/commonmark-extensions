@@ -12,7 +12,7 @@ use League\CommonMark\Parser\Inline\InlineParserInterface;
 use League\CommonMark\Parser\Inline\InlineParserMatch;
 use League\CommonMark\Parser\InlineParserContext;
 
-class WikilinkParser implements InlineParserInterface, EnvironmentAwareInterface
+class WikilinkParser implements EnvironmentAwareInterface, InlineParserInterface
 {
     private mixed $resolveWikilink;
 
@@ -50,18 +50,18 @@ class WikilinkParser implements InlineParserInterface, EnvironmentAwareInterface
             $resolvedWikilink = ($this->resolveWikilink)($filename);
 
             if ($anchor) {
-                $resolvedWikilink .= '#' . $normalizedAnchor;
+                $resolvedWikilink .= '#'.$normalizedAnchor;
             }
 
-            if (!$caption) {
+            if (! $caption) {
                 $caption = $filename;
 
                 if ($anchor) {
-                    $caption .= ' > ' . $anchor;
+                    $caption .= ' > '.$anchor;
                 }
             }
-        } else if ($anchor) {
-            $resolvedWikilink = "#" . $normalizedAnchor;
+        } elseif ($anchor) {
+            $resolvedWikilink = '#'.$normalizedAnchor;
             $caption = $anchor;
         } else {
             $resolvedWikilink = '';

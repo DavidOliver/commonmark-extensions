@@ -21,7 +21,7 @@ class CommonMarkTest extends TestCase
     {
         $environment = new Environment($config);
 
-        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new CommonMarkCoreExtension);
         foreach ($extensions as $extension) {
             $environment->addExtension($extension);
         }
@@ -36,8 +36,8 @@ class CommonMarkTest extends TestCase
             $this->converter->convert($markdown)->getContent()
         );
     }
-    
-    protected function assertHtml(string $expected, string $actual): void 
+
+    protected function assertHtml(string $expected, string $actual): void
     {
         $this->assertEquals(
             $this->processHtml($expected),
@@ -57,8 +57,8 @@ class CommonMarkTest extends TestCase
         $noNewLines = preg_replace('/\s*\n\s*/', '', $trimmedHtml);
 
         // From this processed string, we can now add in some newlines in between tags
-        $result = str_replace(">", ">\n", $noNewLines);
-        $result = str_replace("<", "\n<", $result);
+        $result = str_replace('>', ">\n", $noNewLines);
+        $result = str_replace('<', "\n<", $result);
 
         $result = preg_replace('/\s*\n\s*/', "\n", $result);
 
@@ -68,7 +68,7 @@ class CommonMarkTest extends TestCase
     /**
      * The CommonMarkTest class needs at least one test, else we get a warning.
      */
-    public function testBase(): void
+    public function test_base(): void
     {
         $this->assertTrue(true);
     }

@@ -11,10 +11,10 @@ class WikilinkEmbedTest extends CommonMarkTest
 {
     protected function setUp(): void
     {
-        parent::configureEnvironment(extensions: [new WikilinkEmbedExtension()]);
+        parent::configureEnvironment(extensions: [new WikilinkEmbedExtension]);
     }
 
-    public function testBasicEmbed(): void
+    public function test_basic_embed(): void
     {
         $markdown = <<<'MARKDOWN'
         ![[document.pdf]]
@@ -27,7 +27,7 @@ class WikilinkEmbedTest extends CommonMarkTest
         $this->assertMarkdown($expected, $markdown);
     }
 
-    public function testEmbedWithCaption(): void
+    public function test_embed_with_caption(): void
     {
         $markdown = <<<'MARKDOWN'
         ![[document.pdf|View PDF Document]]

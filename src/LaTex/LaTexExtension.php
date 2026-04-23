@@ -12,9 +12,9 @@ class LaTexExtension implements ExtensionInterface
     public function register(EnvironmentBuilderInterface $environment): void
     {
         $environment
-            ->addInlineParser(new LaTexInlineParser(), 190)
-            ->addBlockStartParser(new LaTexBlockStartParser(), 200)
-            ->addRenderer(LaTexInline::class, new LaTexInlineRenderer(), 200)
-            ->addRenderer(LaTexBlock::class, new LaTexBlockRenderer());
+            ->addInlineParser(new LaTexInlineParser, 190)
+            ->addBlockStartParser(new LaTexBlockStartParser, 200)
+            ->addRenderer(LaTexInline::class, new LaTexInlineRenderer, 200)
+            ->addRenderer(LaTexBlock::class, new LaTexBlockRenderer);
     }
 }
