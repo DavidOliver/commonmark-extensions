@@ -24,7 +24,7 @@ class WikilinkTest extends CommonMarkTest
         <p><a href="Test">Test</a></p>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testBasicWikilinkWithContext(): void
@@ -37,7 +37,7 @@ class WikilinkTest extends CommonMarkTest
         <p>This is a <a href="Wikilink">Wikilink</a>!</p>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testWikilinkWithText(): void
@@ -50,7 +50,7 @@ class WikilinkTest extends CommonMarkTest
         <p><a href="Test">Link Text</a></p>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testWikilinkWithTextAndContext(): void
@@ -63,6 +63,6 @@ class WikilinkTest extends CommonMarkTest
         <p>This is a <a href="Test">Link Text</a>!</p>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 }

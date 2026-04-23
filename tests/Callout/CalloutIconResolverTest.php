@@ -39,6 +39,6 @@ class CalloutIconResolverTest extends CommonMarkTest
         </blockquote>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 }

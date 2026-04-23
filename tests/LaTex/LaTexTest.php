@@ -26,7 +26,7 @@ class LaTexTest extends CommonMarkTest
         </p>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected, true);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testInlineLatexWithContext(): void
@@ -41,7 +41,7 @@ class LaTexTest extends CommonMarkTest
         </p>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testBlockLatex(): void
@@ -66,7 +66,7 @@ class LaTexTest extends CommonMarkTest
         </div>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testBlockLatexWithContext(): void
@@ -97,7 +97,7 @@ class LaTexTest extends CommonMarkTest
         <p>These are fundamental physics equations.</p>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testMixedLatex(): void
@@ -125,7 +125,7 @@ class LaTexTest extends CommonMarkTest
         </div>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testLatexWithMarkdownSymbols(): void
@@ -140,6 +140,6 @@ class LaTexTest extends CommonMarkTest
         </p>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 }

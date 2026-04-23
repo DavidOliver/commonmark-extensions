@@ -30,6 +30,6 @@ class WikilinkResolveTest extends CommonMarkTest
         <p><a href="resolved:Test">Test</a></p>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 }

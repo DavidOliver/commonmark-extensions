@@ -29,11 +29,19 @@ class CommonMarkTest extends TestCase
         $this->converter = new MarkdownConverter($environment);
     }
 
-    protected function assertMarkdown(string $markdown, string $expected): void
+    protected function assertMarkdown(string $expected, string $markdown): void
+    {
+        $this->assertHtml(
+            $expected,
+            $this->converter->convert($markdown)->getContent()
+        );
+    }
+    
+    protected function assertHtml(string $expected, string $actual): void 
     {
         $this->assertEquals(
             $this->processHtml($expected),
-            $this->processHtml($this->converter->convert($markdown)->getContent())
+            $this->processHtml($actual)
         );
     }
 

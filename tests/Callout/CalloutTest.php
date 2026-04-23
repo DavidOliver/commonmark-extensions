@@ -33,7 +33,7 @@ class CalloutTest extends CommonMarkTest
         </blockquote>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testCalloutWithMultipleLines(): void
@@ -61,7 +61,7 @@ class CalloutTest extends CommonMarkTest
         </blockquote>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testCalloutWithNestedContent(): void
@@ -89,7 +89,7 @@ class CalloutTest extends CommonMarkTest
         </blockquote>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testInvalidCallout(): void
@@ -104,6 +104,6 @@ class CalloutTest extends CommonMarkTest
         </blockquote>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 }

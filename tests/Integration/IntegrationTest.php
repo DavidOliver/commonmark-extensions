@@ -48,10 +48,10 @@ class IntegrationTest extends CommonMarkTest
             return;
         }
 
+        $expected = file_get_contents($htmlFile);
         $markdown = file_get_contents($markdownFile);
-        $expectedHtml = file_get_contents($htmlFile);
 
-        $this->assertMarkdown($markdown, $expectedHtml);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testVektor(): void

@@ -24,7 +24,7 @@ class WikilinkEmbedTest extends CommonMarkTest
         <iframe src="document.pdf"></iframe>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 
     public function testEmbedWithCaption(): void
@@ -37,6 +37,6 @@ class WikilinkEmbedTest extends CommonMarkTest
         <iframe src="document.pdf" title="View PDF Document"></iframe>
         HTML;
 
-        $this->assertMarkdown($markdown, $expected);
+        $this->assertMarkdown($expected, $markdown);
     }
 }
