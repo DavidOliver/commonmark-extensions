@@ -7,15 +7,16 @@ namespace Semmelsamu\CommonmarkExtensions\Wikilink;
 use League\CommonMark\Environment\EnvironmentAwareInterface;
 use League\CommonMark\Environment\EnvironmentInterface;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
+use League\CommonMark\Normalizer\TextNormalizerInterface;
 use League\CommonMark\Parser\Inline\InlineParserInterface;
 use League\CommonMark\Parser\Inline\InlineParserMatch;
 use League\CommonMark\Parser\InlineParserContext;
 
 class WikilinkParser implements InlineParserInterface, EnvironmentAwareInterface
 {
-    private $resolveWikilink;
+    private mixed $resolveWikilink;
 
-    private $slugNormalizer;
+    private ?TextNormalizerInterface $slugNormalizer = null;
 
     public function __construct(callable $resolveWikilink)
     {

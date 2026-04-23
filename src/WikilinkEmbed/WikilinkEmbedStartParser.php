@@ -11,7 +11,7 @@ use League\CommonMark\Parser\MarkdownParserStateInterface;
 
 class WikilinkEmbedStartParser implements BlockStartParserInterface
 {
-    private $resolveWikilink;
+    private mixed $resolveWikilink;
 
     public function __construct(callable $resolveWikilink)
     {

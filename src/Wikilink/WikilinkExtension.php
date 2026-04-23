@@ -14,7 +14,7 @@ class WikilinkExtension implements ConfigurableExtensionInterface
     public function configureSchema(ConfigurationBuilderInterface $builder): void
     {
         $builder->addSchema('wikilink', Expect::structure([
-            'resolve' => Expect::callable()->default(function (string $wikilink) {
+            'resolve' => Expect::callable()->default(function (string $wikilink): string {
                 return $wikilink;
             })
         ]));

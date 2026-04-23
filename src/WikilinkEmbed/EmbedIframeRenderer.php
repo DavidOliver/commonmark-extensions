@@ -14,7 +14,7 @@ class EmbedIframeRenderer implements NodeRendererInterface
     /**
      * @param Embed $node
      */
-    public function render(Node $node, ChildNodeRendererInterface $childRenderer)
+    public function render(Node $node, ChildNodeRendererInterface $childRenderer): HtmlElement
     {
         Embed::assertInstanceOf($node);
 

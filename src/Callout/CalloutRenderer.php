@@ -11,7 +11,7 @@ use League\CommonMark\Util\HtmlElement;
 
 final class CalloutRenderer implements NodeRendererInterface
 {
-    private $renderIcon;
+    private mixed $renderIcon;
 
     public function __construct(callable $renderIcon)
     {

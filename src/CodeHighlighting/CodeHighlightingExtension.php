@@ -26,7 +26,7 @@ class CodeHighlightingExtension implements ExtensionInterface, NodeRendererInter
         $environment->addRenderer(FencedCode::class, $this, 100);
     }
 
-    public function render(Node $node, ChildNodeRendererInterface $childRenderer)
+    public function render(Node $node, ChildNodeRendererInterface $childRenderer): string
     {
         /** @var FencedCode $node */
 

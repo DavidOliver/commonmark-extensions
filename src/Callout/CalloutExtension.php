@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Semmelsamu\CommonmarkExtensions\Callout;
 
 use League\CommonMark\Extension\ConfigurableExtensionInterface;
@@ -12,7 +14,7 @@ final class CalloutExtension implements ConfigurableExtensionInterface
     public function configureSchema(ConfigurationBuilderInterface $builder): void
     {
         $builder->addSchema('callout', Expect::structure([
-            'render_icon' => Expect::callable()->default(function (string $callout_type) {
+            'render_icon' => Expect::callable()->default(function (string $callout_type): string {
                 return $callout_type;
             })
         ]));

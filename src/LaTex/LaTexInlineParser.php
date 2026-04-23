@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Semmelsamu\CommonmarkExtensions\LaTex;
 
 use League\CommonMark\Parser\Inline\InlineParserInterface;

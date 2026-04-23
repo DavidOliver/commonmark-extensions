@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Semmelsamu\CommonmarkExtensions\Callout;
 
 use League\CommonMark\Parser\Block\BlockStart;

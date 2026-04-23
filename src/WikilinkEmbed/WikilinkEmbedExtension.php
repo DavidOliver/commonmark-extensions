@@ -16,7 +16,7 @@ final class WikilinkEmbedExtension implements ConfigurableExtensionInterface
     public function configureSchema(ConfigurationBuilderInterface $builder): void
     {
         $builder->addSchema('wikilink_embed', Expect::structure([
-            'resolve' => Expect::callable()->default(function (string $wikilink) {
+            'resolve' => Expect::callable()->default(function (string $wikilink): string {
                 return $wikilink;
             })
         ]));
