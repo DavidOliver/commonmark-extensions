@@ -172,6 +172,14 @@ class WikilinkEmbedImageRenderer implements NodeRendererInterface
 ./vendor/bin/phpunit --do-not-cache-result
 ```
 
+## Formatting
+
+This Project uses [Laravel Pint](https://laravel.com/docs/13.x/pint):
+
+```bash
+./vendor/bin/pint
+```
+
 ## License
 
 This project is licenced under the MIT license. See the [`LICENSE`](LICENSE) file for more information.
