@@ -55,7 +55,7 @@ final class LaTexBlockParser extends AbstractBlockContinueParser
      */
     public function addLine(string $line): void
     {
-        $this->content .= trim($line, '$');
+        $this->content .= "\n" . trim($line, '$');
     }
 
     /**
